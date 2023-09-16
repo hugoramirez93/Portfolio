@@ -1,0 +1,326 @@
+body,html {
+    background-color: whitesmoke;
+    height: 100%;
+}
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Banner h1{
+    font-size: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.menu {
+    padding: 0.5%;
+    background-color: rgb(44, 44, 44);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .7);
+    border-radius: 25px;
+    text-align: center;
+    font-size: 1.6rem;
+    margin:2%;
+    margin-right: 0;
+    margin-left: 0;
+    transition: opacity 1s;
+}
+
+.menu a:hover {
+    color: aqua;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: 5%;
+    margin-right:5%;
+
+}
+
+.hero-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(japon.webp);
+height: 50%;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+border-radius: 4px;
+margin-bottom: 25px;
+}
+
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.Main-image .title {
+    opacity: 1;
+    font-size: 3rem;
+    justify-content: sta;
+    display: flex;
+    position: absolute;
+}
+
+.Main-image .detail-text {
+    font-size: 1.5rem;
+    align-self: center;
+    display: flex;
+    position: absolute;
+}
+
+.Main-image {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.container {
+    margin: auto;
+    width: 500px;
+    margin-bottom: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.image-three span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.container h2 {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 1);
+    font-size: 30px;
+    color: white;
+    justify-content: center;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container p{
+    width: 200px;
+    height: 100px;
+    color: white;
+    display: block;
+    margin-top: 0%;
+    margin-bottom: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10%;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.container a{
+    text-shadow: 1px 1px 4px rgba(255, 255, 255, .6);
+    font-size: 20px;
+    margin: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+}
+
+.container a:hover {
+    transition: .2s;
+    color: aqua;
+}
+
+.container img {
+    width: 100%;
+    height: 5%;
+    justify-content: center;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+}
+
+.container .image-one{
+    margin-bottom: 15px;
+    display: block;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 30%;
+    justify-content: center;
+    background-color: rgb(54, 54, 54);
+    border-radius: 10px;
+    box-shadow: 2px 2px 9px 3px rgba(0, 0, 0, 0.7);
+}
+
+.container .image-two{
+    display: block;
+    width: 50%;
+    margin-bottom: 15px;
+    margin-left: 25%;
+    margin-right: 30%;
+    justify-content: center;
+    background-color: rgb(54, 54, 54);
+    border-radius: 10px;
+    box-shadow: 2px 2px 9px 3px rgba(0, 0, 0, 0.7);
+}
+
+.container .image-three {
+    display: block;
+    width: 50%;
+    margin-bottom: 15px;
+    margin-left: 25%;
+    margin-right: 30%;
+    justify-content: center;
+    background-color: rgb(54, 54, 54);
+    border-radius: 10px;
+    box-shadow: 2px 2px 9px 3px rgba(0, 0, 0, 0.7);
+}
+
+.end-page {
+    margin-bottom: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly
+}
+
+.image-logo {
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    background-image: url(japon.webp);
+    justify-content: right;
+    align-self: baseline;
+    margin-bottom: 100px;
+}
+
+.copyright {
+    text-align: end;
+    height: 50px;
+    width: 65%;
+    border-top: 3px solid black;
+    align-self: baseline;
+
+}
+
+ 
+/* Adjustment para 1080p */
+
+@media (min-width: 1080px){
+
+    .Banner h1{
+        font-size: 3vw;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .container {
+        margin: auto;
+        width:800px;
+        margin-bottom: 5%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+    }
+
+    .image-three span {
+        margin-right: 5px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .container h2 {
+        font-size: 30px;
+        color: white;
+        justify-content: center;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .container a{
+        font-size: 20px;
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        cursor: pointer;
+    }
+
+    .container p{
+        width: 200px;
+        height: 130px;
+        color: white;
+        display: block;
+        margin-top: 0%;
+        margin-bottom: 30%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10%;
+        font-size: 16px;
+        text-align: justify;
+    }
+
+    .container img {
+        width: 300px;
+        height: 300px;
+        justify-content: center;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .container .image-one{
+        display: block;
+        width: 650;
+        height: 700px;
+        margin-left: 2%;
+        margin-right: 2%;
+        justify-content: center;
+        background-color: rgb(54, 54, 54);
+        border-radius: 10px;
+        box-shadow: 2px 2px 9px 3px rgba(0, 0, 0, 0.7);
+    }
+    
+    .container .image-two{
+        display: block;
+        width: 650;
+        height: 700px;
+        margin-left: 2%;
+        margin-right: 2%;
+        justify-content: center;
+        background-color: rgb(54, 54, 54);
+        border-radius: 10px;
+        box-shadow: 2px 2px 9px 3px rgba(0, 0, 0, 0.7);
+    }
+    
+    .container .image-three {
+        display: block;
+        width: 650;
+        height: 700px;
+        margin-left: 2%;
+        margin-right: 2%;
+        justify-content: center;
+        background-color: rgb(54, 54, 54);
+        border-radius: 10px;
+        box-shadow: 2px 2px 9px 3px rgba(0, 0, 0, 0.7);
+    }
+}

@@ -1,0 +1,323 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+h1  {font-size: 3,5em;}
+h2  {font-size: 2.7em;}
+h3  {font-size: 2em;}
+p   {font-size: 1.25;}
+ul  {list-style: none;}
+li  {font-size: 1.25;}
+
+button  {    
+    font-size: 1em;
+    font-weight: bold;
+    padding: 15px 25px;
+    border-radius: 35px;
+    border: 1px solid rgba(0,0,0,0.6);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+    color: white;
+    background-color: blueviolet;
+}
+
+button:hover {
+    transition: 0.5s;
+    background-color: rgb(101, 33, 165);
+}
+
+button:active{
+    background-color: rgb(63, 35, 90);
+}
+
+.color-acento {color: blueviolet;}
+
+.container  {
+    max-width: 1400px;
+    margin: auto;
+}
+
+/* HEADER */
+
+header  {
+    background-color: rgb(245, 245, 245);
+}
+
+header .logo {
+    margin: 0;
+    padding: 25px 30px;
+    font-weight: bold;
+    color: blueviolet;
+    font-size: 1.6em;
+}
+
+header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header nav{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+header a{
+    padding: 5px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+header a:hover {
+    color: blueviolet;
+}
+
+#hero h1{
+    font-size: 4.3em;
+}
+
+#hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    height: 90vh;
+    color: white;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.7)
+    )
+    ,url("pexels-luis-gomes-546819.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+/*SOMOS PROYA*/
+
+#somos-proya .container {
+    text-align: center;
+}
+
+/*NUESTROS PROGRAMAS 3 IMAGENES*/
+
+
+#nuestros-programas {
+    background-color:rgb(19, 19, 19);
+    color: white;
+    text-align: center;  
+}
+
+#nuestros-programas .container {
+    padding: 150px 12px;
+}
+
+#nuestros-programas h2{
+    margin-top: 0;
+    font-size: 3.5em;
+}
+
+#nuestros-programas p{
+    display: flex;
+}
+
+#nuestros-programas .carta{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding: 20px 0px;
+    margin: 30px;
+    border-radius: 15px;
+}
+
+.carta:first-child {
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.7)
+    )
+    ,url("Typing.jpg");
+
+}
+
+.carta:nth-child(2){
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.7)
+    )
+    ,url("Python.jpg");
+
+}
+
+.carta:nth-child(3){
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.7)
+    )
+    ,url("Frontend.jpg");
+
+}
+
+
+#caracteristicas .container {
+    text-align: center;
+    padding: 200px 12px;
+}
+
+#caracteristicas li{
+    margin: 35px 0px;
+    font-weight: bold;
+}
+
+.final {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    height: 80vh;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: rgb(230,230,230);
+}
+
+footer p{
+    margin: 0px;
+    padding: 12px;
+    color: rgb(100, 100, 100);
+}
+
+footer .container{
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* TRANSFORMACION PARA 720p */
+
+@media (min-width: 720px){
+    
+    header {
+        position: fixed;
+        width: 100%;
+    }
+    
+    header .container{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    header nav {
+        flex-direction: row;
+        padding-bottom: 0;
+        padding-right: 20px;
+    }
+}
+
+/* QUIENES SOMOS? */
+
+#somos-proya {
+    padding: 200px 15px;
+}
+
+
+#somos-proya .container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#somos-proya h2 {
+    margin-top: 0px;
+    font-size: 2.1em
+}
+
+#somos-proya .texto {
+    padding: 0px 40px;
+    width: 50%;
+    max-width: 600px;
+    text-align: initial;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#somos-proya .img-container {
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.2),
+        rgba(0,0,0,0.2)
+    )
+        ,url("Somos.jpg");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 600px;
+    height: 400px;
+}
+
+#caracteristicas {
+    margin: 25px;
+    display: flex;
+    background-repeat: no-repeat;
+    background-image: 
+    url("caracteristicas.jpg");
+    background-position: 50px 100px;
+
+    background-position-y:0 100px;
+}
+
+#caracteristicas .container {
+    text-align: initial;
+}
+
+
+
+/* CARTAS 3 IMAGENES NUESTROS PROGRAMAS */
+@media(min-width: 760px){
+
+#nuestros-programas .programas{
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+}
+
+#nuestros-programas p {
+    display: flex;
+}
+
+#nuestros-programas .carta {
+    margin: 10px;
+    padding: 15px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+#nuestros-programas h3{
+    margin-top: 0px
+}
+}
+
+
+
+
