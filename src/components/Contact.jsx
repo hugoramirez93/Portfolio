@@ -23,15 +23,13 @@ const ENDPOINT = 'https://api.web3forms.com/submit'
 /**
  * Web3Forms access key — free, no account required: https://web3forms.com
  *
- * Get it in ~1 minute: enter the destination address (hugoo.ramirez@outlook.com)
- * on https://web3forms.com, copy the key they email you and paste it below — or
- * set `VITE_WEB3FORMS_KEY` in a `.env` file (see `.env.example`).
- *
- * The key is public by design and safe to ship in client-side code.
- * While it is empty the form gracefully falls back to opening the visitor's
- * mail client, so a message is never lost.
+ * The key is public by design and safe to ship in client-side code. It is
+ * hard-coded as the default so the form works everywhere (local + Vercel)
+ * with no extra configuration; override it with `VITE_WEB3FORMS_KEY` in
+ * `.env` (see `.env.example`) or in your hosting provider's env vars.
  */
-const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || ''
+const WEB3FORMS_ACCESS_KEY =
+  import.meta.env.VITE_WEB3FORMS_KEY || 'd3fae424-8b98-43da-bcc7-c0a640861123'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
@@ -99,6 +97,7 @@ export default function Contact() {
           from_name: form.name.trim() || 'Portfolio visitor',
           name: form.name.trim(),
           email: form.email.trim(),
+          replyto: form.email.trim(),
           message: form.message.trim(),
           botcheck: false,
         }),
