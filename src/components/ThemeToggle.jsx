@@ -1,5 +1,5 @@
+import { motion, AnimatePresence } from 'framer-motion'
 import { Sun, Moon } from 'lucide-react'
-import { motion } from 'framer-motion'
 import { useTheme } from '../hooks/useTheme'
 
 export default function ThemeToggle() {
@@ -7,24 +7,25 @@ export default function ThemeToggle() {
 
   return (
     <motion.button
+      type="button"
       onClick={toggleTheme}
-      whileTap={{ scale: 0.9 }}
-      className="relative p-2 rounded-lg bg-transparent hover:bg-[var(--bg-secondary)] transition-colors"
+      whileTap={{ scale: 0.92 }}
+      className="icon-btn relative overflow-hidden"
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      title={isDark ? 'Light mode' : 'Dark mode'}
     >
-      <motion.div
-        key={isDark ? 'moon' : 'sun'}
-        initial={{ rotate: -90, opacity: 0 }}
-        animate={{ rotate: 0, opacity: 1 }}
-        exit={{ rotate: 90, opacity: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        {isDark ? (
-          <Moon className="w-5 h-5 text-blue-400" />
-        ) : (
-          <Sun className="w-5 h-5 text-amber-500" />
-        )}
-      </motion.div>
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.span
+          key={isDark ? 'moon' : 'sun'}
+          initial={{ y: -14, opacity: 0, rotate: -45 }}
+          animate={{ y: 0, opacity: 1, rotate: 0 }}
+          exit={{ y: 14, opacity: 0, rotate: 45 }}
+          transition={{ duration: 0.22 }}
+          className="flex items-center justify-center"
+        >
+          {isDark ? <Moon className="h-5 w-5 text-[var(--accent)]" /> : <Sun className="h-5 w-5 text-[var(--warning)]" />}
+        </motion.span>
+      </AnimatePresence>
     </motion.button>
   )
 }

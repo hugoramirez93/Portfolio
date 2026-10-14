@@ -1,144 +1,176 @@
 import { motion } from 'framer-motion'
-import { ArrowDown, Mail } from 'lucide-react'
+import { ArrowDown, ArrowRight, Download, MapPin, Clock, Sparkles } from 'lucide-react'
 import { FiLinkedin, FiGithub } from 'react-icons/fi'
 import { personalInfo } from '../data/portfolio'
+import TerminalCard from './TerminalCard'
 
-const containerVariants = {
+const EASE = [0.22, 1, 0.36, 1]
+
+const container = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
 }
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+const item = {
+  hidden: { opacity: 0, y: 22 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
+}
+
+const specialties = ['L1 / L2 Support', 'Incident Management', 'Root-Cause Analysis', 'Log Analysis', 'SQL']
+
+function scrollTo(id) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
 export default function Hero() {
   return (
-    <section
-      id="home"
-      className="min-h-screen flex items-center justify-center relative px-4 pt-16"
-    >
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="max-w-3xl mx-auto text-center"
-      >
-        <motion.div variants={itemVariants} className="mb-8">
-          <div className="relative inline-block">
-            <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-[var(--accent)]/30 mx-auto shadow-xl shadow-[var(--accent)]/10">
-              <img
-                src="/images/photo.jpg"
-                alt={personalInfo.name}
-                className="w-full h-full object-cover"
-              />
+    <section id="home" className="relative flex min-h-[100svh] items-center overflow-hidden pb-16 pt-28 sm:pt-32">
+      <div className="shell w-full">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
+          {/* ---------- Left column ---------- */}
+          <motion.div variants={container} initial="hidden" animate="visible" className="lg:col-span-7">
+            <motion.div variants={item} className="flex items-center gap-3">
+              <div
+                className="relative h-20 w-20 shrink-0 rounded-full p-[2.5px] shadow-[0_10px_30px_-12px_var(--glow)] sm:h-24 sm:w-24"
+                style={{ background: 'linear-gradient(135deg, var(--accent), var(--accent-2))' }}
+              >
+                <img
+                  src="/photo-hugo.jpg"
+                  alt={personalInfo.name}
+                  className="h-full w-full rounded-full object-cover object-top"
+                />
+                <span className="absolute bottom-0 right-0 h-4 w-4 rounded-full border-2 border-[var(--bg-primary)] bg-[var(--success)] sm:h-5 sm:w-5" />
+              </div>
+
+              <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] bg-[var(--bg-card)] px-3 py-1.5 text-xs font-medium text-[var(--text-secondary)]">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--success)] opacity-60" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--success)]" />
+                </span>
+                {personalInfo.availability}
+              </span>
+            </motion.div>
+
+            <motion.h1
+              variants={item}
+              className="mt-7 text-4xl font-extrabold leading-[1.05] tracking-tight text-[var(--text-primary)] sm:text-5xl lg:text-6xl"
+            >
+              {personalInfo.name}
+            </motion.h1>
+
+            <motion.p variants={item} className="mt-4 text-lg font-semibold sm:text-xl lg:text-[1.4rem]">
+              <span className="gradient-text animate-gradient-x">
+                {personalInfo.role} ({personalInfo.roleLevel})
+              </span>
+              <span className="mt-1 block text-base font-medium text-[var(--text-secondary)] sm:text-lg">
+                {personalInfo.roleFocus}
+              </span>
+            </motion.p>
+
+            <motion.p
+              variants={item}
+              className="mt-5 max-w-xl text-base leading-relaxed text-[var(--text-secondary)] text-pretty sm:text-[1.05rem]"
+            >
+              {personalInfo.tagline}
+            </motion.p>
+
+            <motion.div variants={item} className="mt-6 flex flex-wrap gap-2">
+              {specialties.map((s) => (
+                <span key={s} className="chip">
+                  <Sparkles className="h-3 w-3" />
+                  {s}
+                </span>
+              ))}
+            </motion.div>
+
+            <motion.div variants={item} className="mt-8 flex flex-wrap items-center gap-3">
+              <a href={personalInfo.resumeUrl} download className="btn btn-primary">
+                <Download className="h-4 w-4" />
+                Download Resume
+              </a>
+              <button type="button" onClick={() => scrollTo('cases')} className="btn btn-ghost">
+                View Case Studies
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </motion.div>
+
+            <motion.div variants={item} className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-[var(--text-secondary)]">
+              <span className="inline-flex items-center gap-2">
+                <MapPin className="h-4 w-4 text-[var(--accent)]" />
+                {personalInfo.location}
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <Clock className="h-4 w-4 text-[var(--accent)]" />
+                {personalInfo.workMode}
+              </span>
+
+              <span className="flex items-center gap-2">
+                <a
+                  href={personalInfo.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="icon-btn h-9 w-9"
+                  aria-label="LinkedIn profile"
+                >
+                  <FiLinkedin className="h-4 w-4" />
+                </a>
+                <a
+                  href={personalInfo.social.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="icon-btn h-9 w-9"
+                  aria-label="GitHub profile"
+                >
+                  <FiGithub className="h-4 w-4" />
+                </a>
+                <a
+                  href={`mailto:${personalInfo.email}`}
+                  className="icon-btn h-9 w-9 font-semibold"
+                  aria-label="Send an email"
+                >
+                  @
+                </a>
+              </span>
+            </motion.div>
+          </motion.div>
+
+          {/* ---------- Right column ---------- */}
+          <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.35, ease: EASE }}
+            className="relative lg:col-span-5"
+          >
+            <div
+              aria-hidden="true"
+              className="absolute -inset-y-6 -inset-x-2 -z-10 rounded-[2rem] opacity-70 blur-2xl sm:-inset-x-6"
+              style={{ background: 'radial-gradient(circle at 60% 40%, var(--glow), transparent 70%)' }}
+            />
+            <TerminalCard />
+
+            <div className="animate-float absolute -bottom-5 -left-4 hidden rounded-2xl border border-[var(--border-strong)] bg-[var(--bg-elevated)] px-4 py-3 shadow-xl sm:block">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--text-muted)]">
+                Repeat escalations
+              </p>
+              <p className="mt-0.5 text-lg font-bold text-[var(--success)]">↓ reduced</p>
             </div>
-            <span className="absolute bottom-2 right-2 w-5 h-5 bg-green-500 border-2 border-[var(--bg-primary)] rounded-full" />
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
+      </div>
 
-        <motion.h1
-          variants={itemVariants}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-[var(--text-primary)]"
-        >
-          {personalInfo.name}
-        </motion.h1>
-
-        <motion.p
-          variants={itemVariants}
-          className="text-lg sm:text-xl text-[var(--accent)] font-medium mb-3"
-        >
-          {personalInfo.role}
-        </motion.p>
-
-        <motion.p
-          variants={itemVariants}
-          className="text-base sm:text-lg text-[var(--text-secondary)] max-w-xl mx-auto mb-4"
-        >
-          {personalInfo.location} — {personalInfo.languages.join(' · ')}
-        </motion.p>
-
-        <motion.p
-          variants={itemVariants}
-          className="text-sm sm:text-base text-[var(--text-secondary)] max-w-2xl mx-auto mb-8 leading-relaxed"
-        >
-          {personalInfo.bio}
-        </motion.p>
-
-        <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="#projects"
-            onClick={(e) => {
-              e.preventDefault()
-              document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
-            }}
-            className="px-6 py-3 bg-[var(--accent)] text-white rounded-xl font-medium hover:bg-[var(--accent-hover)] transition-colors shadow-lg shadow-[var(--accent)]/25"
-          >
-            View Projects
-          </a>
-          <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault()
-              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-            }}
-            className="px-6 py-3 border border-[var(--border)] text-[var(--text-primary)] rounded-xl font-medium hover:bg-[var(--bg-secondary)] transition-colors"
-          >
-            Contact Me
-          </a>
-        </motion.div>
-
-        <motion.div variants={itemVariants} className="flex items-center justify-center gap-4 mt-8">
-          <a
-            href={personalInfo.social.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2.5 rounded-lg text-[var(--text-secondary)] hover:text-[var(--accent)] hover:bg-[var(--bg-secondary)] transition-colors"
-            aria-label="LinkedIn"
-          >
-            <FiLinkedin className="w-5 h-5" />
-          </a>
-          <a
-            href={personalInfo.social.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2.5 rounded-lg text-[var(--text-secondary)] hover:text-[var(--accent)] hover:bg-[var(--bg-secondary)] transition-colors"
-            aria-label="GitHub"
-          >
-            <FiGithub className="w-5 h-5" />
-          </a>
-          <a
-            href={`mailto:${personalInfo.email}`}
-            className="p-2.5 rounded-lg text-[var(--text-secondary)] hover:text-[var(--accent)] hover:bg-[var(--bg-secondary)] transition-colors"
-            aria-label="Email"
-          >
-            <Mail className="w-5 h-5" />
-          </a>
-        </motion.div>
-      </motion.div>
-
-      <motion.a
-        href="#about"
-        onClick={(e) => {
-          e.preventDefault()
-          document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
-        }}
+      <motion.button
+        type="button"
+        onClick={() => scrollTo('about')}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
+        transition={{ delay: 1.6 }}
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 text-[var(--text-muted)] transition-colors hover:text-[var(--accent)] md:block"
+        aria-label="Scroll to about section"
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <ArrowDown className="w-5 h-5" />
-        </motion.div>
-      </motion.a>
+        <motion.span animate={{ y: [0, 7, 0] }} transition={{ duration: 2, repeat: Infinity }}>
+          <ArrowDown className="h-5 w-5" />
+        </motion.span>
+      </motion.button>
     </section>
   )
 }

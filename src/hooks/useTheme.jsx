@@ -1,33 +1,37 @@
-import { createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useContext, useState, useEffect, useCallback } from 'react'
 
-const ThemeContext = createContext()
+const ThemeContext = createContext(null)
+
+function getInitialTheme() {
+  if (typeof window === 'undefined') return true
+  try {
+    const stored = localStorage.getItem('theme')
+    if (stored) return stored === 'dark'
+    // Default to the dark-first design.
+    return true
+  } catch {
+    return true
+  }
+}
 
 export function ThemeProvider({ children }) {
-  const [isDark, setIsDark] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('theme')
-      if (stored) return stored === 'dark'
-      return window.matchMedia('(prefers-color-scheme: dark)').matches
-    }
-    return false
-  })
+  const [isDark, setIsDark] = useState(getInitialTheme)
 
   useEffect(() => {
     const root = document.documentElement
-    if (isDark) {
-      root.classList.add('dark')
-    } else {
-      root.classList.remove('dark')
+    root.classList.toggle('dark', isDark)
+    root.style.colorScheme = isDark ? 'dark' : 'light'
+    try {
+      localStorage.setItem('theme', isDark ? 'dark' : 'light')
+    } catch {
+      /* storage unavailable — ignore */
     }
-    localStorage.setItem('theme', isDark ? 'dark' : 'light')
   }, [isDark])
 
-  const toggleTheme = () => setIsDark(prev => !prev)
+  const toggleTheme = useCallback(() => setIsDark((prev) => !prev), [])
 
   return (
-    <ThemeContext.Provider value={{ isDark, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={{ isDark, toggleTheme }}>{children}</ThemeContext.Provider>
   )
 }
 

@@ -1,0 +1,1236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hugo Ramírez — CV · Technical Support Specialist (L1/L2)</title>
+    <meta
+      name="description"
+      content="Hugo Ramírez — Technical Support Specialist (L1/L2). Enterprise SaaS & CPQ. 94% CSAT, sub-10-minute first response, 30+ incident investigations and RCAs."
+    />
+    <meta name="color-scheme" content="dark light" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ============================================================
+         PALETTE — mirrors the portfolio design tokens
+         ============================================================ */
+      :root {
+        --ink: #0b1220;
+        --ink-2: #33415c;
+        --muted: #5a6880;
+        --line: #e2e8f2;
+        --line-strong: #c9d5e6;
+        --accent: #0369a1;
+        --accent-2: #4f46e5;
+        --chip: #eef2fb;
+        --success: #0a6e45;
+
+        --hdr-bg-1: #04060d;
+        --hdr-ink: #eaf1fb;
+        --hdr-muted: #9fb0c9;
+        --cyan: #22d3ee;
+        --indigo: #818cf8;
+
+        --sev-critical: #b02525;
+        --sev-high: #8f5600;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        background: #0b0f17;
+        color: var(--ink);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* --------------------------- toolbar (screen only) ---------- */
+      .toolbar {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 50;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .toolbar a,
+      .toolbar button {
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 11px 18px;
+        border-radius: 12px;
+        border: 1px solid rgba(148, 163, 184, 0.3);
+        background: rgba(10, 15, 27, 0.82);
+        backdrop-filter: blur(12px);
+        color: #e9f0fb;
+        cursor: pointer;
+        text-decoration: none;
+        transition: transform 0.18s ease, background 0.2s ease, border-color 0.2s ease;
+      }
+
+      .toolbar button.primary {
+        background: var(--cyan);
+        border-color: var(--cyan);
+        color: #04131a;
+      }
+
+      .toolbar button:hover,
+      .toolbar a:hover {
+        transform: translateY(-2px);
+      }
+
+      /* --------------------------- page --------------------------- */
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      .page {
+        position: relative;
+        width: 210mm;
+        min-height: 296mm;
+        margin: 24px auto;
+        background: #ffffff;
+        color: var(--ink);
+        box-shadow: 0 40px 90px -40px rgba(0, 0, 0, 0.85);
+        line-height: 1.5;
+      }
+
+      .wrap {
+        padding: 0 13mm;
+      }
+
+      /* --------------------------- header ------------------------- */
+      header.hdr {
+        position: relative;
+        background: radial-gradient(120% 160% at 12% 0%, #0d1b30 0%, var(--hdr-bg-1) 58%);
+        color: var(--hdr-ink);
+        padding: 7mm 0 5.5mm;
+        overflow: hidden;
+      }
+
+      header.hdr.slim {
+        padding: 5mm 0 4mm;
+      }
+
+      header.hdr::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(to right, rgba(148, 163, 184, 0.09) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(148, 163, 184, 0.09) 1px, transparent 1px);
+        background-size: 34px 34px;
+        -webkit-mask-image: linear-gradient(to bottom, #000, transparent 92%);
+        mask-image: linear-gradient(to bottom, #000, transparent 92%);
+        pointer-events: none;
+      }
+
+      header.hdr::after {
+        content: '';
+        position: absolute;
+        top: -60px;
+        right: -40px;
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(34, 211, 238, 0.28), transparent 68%);
+        pointer-events: none;
+      }
+
+      .hdr-inner {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hdr-top {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .avatar {
+        width: 78px;
+        height: 78px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: top;
+        flex-shrink: 0;
+        padding: 2.5px;
+        background: linear-gradient(135deg, var(--cyan), var(--indigo));
+        box-shadow: 0 12px 30px -12px rgba(34, 211, 238, 0.6);
+      }
+
+      .avatar.sm {
+        width: 46px;
+        height: 46px;
+      }
+
+      .name {
+        font-size: 30px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.02;
+        background-image: linear-gradient(102deg, #ffffff 0%, var(--cyan) 46%, var(--indigo) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .name.sm {
+        font-size: 19px;
+      }
+
+      .role {
+        margin-top: 5px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--hdr-ink);
+      }
+
+      .role span {
+        color: var(--cyan);
+      }
+
+      .focus {
+        margin-top: 2px;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--hdr-muted);
+        letter-spacing: 0.01em;
+      }
+
+      .hdr-contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 16px;
+        margin-top: 14px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(148, 163, 184, 0.18);
+      }
+
+      .hdr-contact.flat {
+        margin-top: 8px;
+        padding-top: 8px;
+      }
+
+      .hdr-contact a,
+      .hdr-contact span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11px;
+        color: var(--hdr-ink);
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .hdr-contact svg {
+        width: 12px;
+        height: 12px;
+        color: var(--cyan);
+        flex-shrink: 0;
+      }
+
+      /* --------------------------- stats strip -------------------- */
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        border-bottom: 1px solid var(--line);
+        background: linear-gradient(180deg, #f8fbff, #ffffff);
+      }
+
+      .stat {
+        padding: 5.5px 9px;
+        border-right: 1px solid var(--line);
+      }
+
+      .stat:last-child {
+        border-right: 0;
+      }
+
+      .stat b {
+        display: block;
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: var(--accent);
+        line-height: 1.1;
+      }
+
+      .stat .lbl {
+        display: block;
+        margin-top: 1.5px;
+        font-size: 8.2px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--muted);
+        line-height: 1.25;
+      }
+
+      /* --------------------------- body grid ---------------------- */
+      .body {
+        display: grid;
+        grid-template-columns: 1.92fr 1fr;
+        align-items: start;
+      }
+
+      .col-main {
+        padding: 6mm 6.5mm 7mm 13mm;
+        border-right: 1px solid var(--line);
+      }
+
+      .col-side {
+        padding: 6mm 13mm 7mm 6.5mm;
+        background: linear-gradient(180deg, #fbfcfe, #ffffff);
+      }
+
+      .section {
+        margin-bottom: 5mm;
+      }
+
+      .section:last-child {
+        margin-bottom: 0;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 7px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.17em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .section-title::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, var(--line-strong), transparent);
+      }
+
+      /* --------------------------- summary ------------------------ */
+      .summary {
+        font-size: 11px;
+        line-height: 1.5;
+        color: var(--ink-2);
+      }
+
+      .summary strong {
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      /* --------------------------- entry -------------------------- */
+      .entry {
+        position: relative;
+        padding-left: 14px;
+        margin-bottom: 9px;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .entry:last-child {
+        margin-bottom: 0;
+      }
+
+      .entry::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 4px;
+        bottom: 2px;
+        width: 2px;
+        border-radius: 2px;
+        background: linear-gradient(180deg, var(--accent), rgba(79, 70, 229, 0.25));
+      }
+
+      .entry-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: baseline;
+      }
+
+      .entry-title {
+        font-size: 12.5px;
+        font-weight: 700;
+        color: var(--ink);
+        letter-spacing: -0.01em;
+      }
+
+      .entry-org {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--accent);
+      }
+
+      .entry-period {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 9.5px;
+        font-weight: 500;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+
+      .entry-context {
+        font-size: 10.5px;
+        color: var(--muted);
+        margin-top: 1px;
+        font-style: italic;
+      }
+
+      ul.bullets {
+        list-style: none;
+        margin-top: 6px;
+      }
+
+      ul.bullets li {
+        position: relative;
+        padding-left: 12px;
+        margin-bottom: 2.5px;
+        font-size: 10.4px;
+        line-height: 1.44;
+        color: var(--ink-2);
+      }
+
+      ul.bullets li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 6.5px;
+        width: 4px;
+        height: 4px;
+        border-radius: 1px;
+        background: var(--accent);
+        transform: rotate(45deg);
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-top: 6px;
+      }
+
+      .tag {
+        font-size: 8.6px;
+        font-weight: 600;
+        padding: 2px 7px;
+        border-radius: 999px;
+        background: var(--chip);
+        color: var(--accent);
+        white-space: nowrap;
+      }
+
+      /* --------------------------- incident cases ----------------- */
+      .case {
+        border: 1px solid var(--line);
+        border-left: 3px solid var(--sev-critical);
+        border-radius: 8px;
+        padding: 8px 10px;
+        margin-bottom: 7px;
+        background: #fbfdff;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .case.high {
+        border-left-color: var(--sev-high);
+      }
+
+      .case:last-child {
+        margin-bottom: 0;
+      }
+
+      .case-head {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 4px;
+      }
+
+      .case-code {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 9px;
+        font-weight: 600;
+        color: var(--muted);
+      }
+
+      .badge {
+        font-size: 8.2px;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 1.5px 6px;
+        border-radius: 999px;
+        color: #fff;
+        background: var(--sev-critical);
+      }
+
+      .badge.high {
+        background: var(--sev-high);
+      }
+
+      .case-title {
+        font-size: 11.5px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .case-cat {
+        font-size: 9px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .case-line {
+        font-size: 10.4px;
+        line-height: 1.5;
+        color: var(--ink-2);
+        margin-top: 2px;
+      }
+
+      .case-line b {
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      .case-result {
+        margin-top: 4px;
+        font-size: 10.2px;
+        font-weight: 600;
+        color: var(--success);
+      }
+
+      /* --------------------------- projects ----------------------- */
+      .proj {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 7px;
+      }
+
+      .proj:last-child {
+        margin-bottom: 0;
+      }
+
+      .proj-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10px;
+      }
+
+      .proj-title {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .proj-stack {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8.6px;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+
+      .proj-desc {
+        font-size: 10.2px;
+        line-height: 1.45;
+        color: var(--ink-2);
+        margin-top: 1px;
+      }
+
+      /* --------------------------- sidebar bits ------------------- */
+      .comp-group {
+        margin-bottom: 8px;
+        break-inside: avoid;
+      }
+
+      .comp-group:last-child {
+        margin-bottom: 0;
+      }
+
+      .comp-title {
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 4px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .comp-title::before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      .comp-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+
+      .comp-items span {
+        font-size: 9.4px;
+        font-weight: 500;
+        padding: 2.5px 7px;
+        border-radius: 6px;
+        background: #fff;
+        border: 1px solid var(--line);
+        color: var(--ink-2);
+      }
+
+      .edu {
+        break-inside: avoid;
+        margin-bottom: 8px;
+        padding-left: 11px;
+        border-left: 2px solid var(--line);
+      }
+
+      .edu:last-child {
+        margin-bottom: 0;
+      }
+
+      .edu-degree {
+        font-size: 10.6px;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.3;
+      }
+
+      .edu-inst {
+        font-size: 9.8px;
+        color: var(--ink-2);
+        margin-top: 1px;
+      }
+
+      .edu-meta {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 3px;
+        flex-wrap: wrap;
+      }
+
+      .pill {
+        font-size: 8px;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 1.5px 6px;
+        border-radius: 999px;
+        background: #e7f6ee;
+        color: var(--success);
+      }
+
+      .pill.progress {
+        background: #fdf3e3;
+        color: var(--sev-high);
+      }
+
+      .edu-year {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8.6px;
+        color: var(--muted);
+      }
+
+      .lang {
+        margin-bottom: 7px;
+      }
+
+      .lang:last-child {
+        margin-bottom: 0;
+      }
+
+      .lang-top {
+        display: flex;
+        justify-content: space-between;
+        font-size: 10.2px;
+        margin-bottom: 4px;
+      }
+
+      .lang-top b {
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .lang-top span {
+        color: var(--muted);
+        font-size: 9.4px;
+      }
+
+      .bar {
+        height: 5px;
+        border-radius: 999px;
+        background: var(--line);
+        overflow: hidden;
+      }
+
+      .bar i {
+        display: block;
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      }
+
+      .tools {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+
+      .tools span {
+        font-size: 9.2px;
+        font-weight: 600;
+        padding: 2.5px 7px;
+        border-radius: 6px;
+        background: var(--chip);
+        color: var(--accent);
+      }
+
+      .highlight {
+        display: flex;
+        gap: 7px;
+        margin-bottom: 7px;
+        break-inside: avoid;
+      }
+
+      .highlight:last-child {
+        margin-bottom: 0;
+      }
+
+      .highlight svg {
+        width: 13px;
+        height: 13px;
+        color: var(--accent);
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+
+      .highlight p {
+        font-size: 10px;
+        line-height: 1.45;
+        color: var(--ink-2);
+      }
+
+      .highlight b {
+        color: var(--ink);
+      }
+
+      /* --------------------------- footer ------------------------- */
+      footer.cv-foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        padding: 3.5mm 13mm;
+        border-top: 1px solid var(--line);
+        font-size: 9px;
+        color: var(--muted);
+        background: #fbfcfe;
+      }
+
+      footer.cv-foot b {
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      /* ============================================================
+         SCREEN
+         ============================================================ */
+      @media screen and (max-width: 900px) {
+        .page {
+          width: 100%;
+          min-height: 0;
+          margin: 0;
+          box-shadow: none;
+        }
+
+        .toolbar {
+          position: static;
+          justify-content: center;
+          padding: 16px 12px;
+          flex-wrap: wrap;
+        }
+
+        .body {
+          grid-template-columns: 1fr;
+        }
+
+        .col-main,
+        .col-side {
+          border: 0;
+          padding: 20px;
+        }
+
+        .stats {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .stat:nth-child(3) {
+          border-right: 0;
+        }
+      }
+
+      /* ============================================================
+         PRINT
+         ============================================================ */
+      @media print {
+        body {
+          background: #fff;
+        }
+
+        .toolbar {
+          display: none !important;
+        }
+
+        .page {
+          width: 210mm;
+          min-height: 0;
+          margin: 0;
+          box-shadow: none;
+        }
+
+        .page + .page {
+          break-before: page;
+          page-break-before: always;
+        }
+
+        * {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="toolbar">
+      <button type="button" class="primary" onclick="window.print()">Print / Save as PDF</button>
+      <a href="./">Back to portfolio</a>
+    </div>
+
+    <!-- ==================================================================
+         PAGE 1
+         ================================================================== -->
+    <article class="page">
+      <header class="hdr">
+        <div class="wrap hdr-inner">
+          <div class="hdr-top">
+            <img class="avatar" src="photo-hugo.jpg" alt="Hugo Ramírez" />
+            <div>
+              <h1 class="name">Hugo Ramírez</h1>
+              <p class="role">Technical Support Specialist <span>(L1 / L2)</span></p>
+              <p class="focus">Enterprise SaaS &amp; CPQ · Incident Management · Root-Cause Analysis</p>
+            </div>
+          </div>
+
+          <div class="hdr-contact">
+            <a href="mailto:hugoo.ramirez@outlook.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" /></svg>
+              hugoo.ramirez@outlook.com
+            </a>
+            <a href="tel:+573225963903">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+              +57 322 596 3903
+            </a>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" /><circle cx="12" cy="10" r="3" /></svg>
+              Cali, Colombia · Remote (US / EU hours)
+            </span>
+            <a href="https://www.linkedin.com/in/hugo-ramirezr" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM0 8h5v16H0V8zm7.5 0h4.78v2.2h.07c.67-1.2 2.3-2.47 4.73-2.47 5.06 0 6 3.3 6 7.6V24h-5v-7.6c0-1.8-.03-4.1-2.5-4.1-2.5 0-2.88 1.95-2.88 3.96V24h-5V8z" /></svg>
+              /in/hugo-ramirezr
+            </a>
+            <a href="https://github.com/hugoramirez93" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.2.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z" /></svg>
+              github.com/hugoramirez93
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <section class="stats">
+        <div class="stat"><b>4+</b><span class="lbl">Years in support</span></div>
+        <div class="stat"><b>94%</b><span class="lbl">CSAT sustained</span></div>
+        <div class="stat"><b>&lt;10 min</b><span class="lbl">First response</span></div>
+        <div class="stat"><b>20+</b><span class="lbl">Cases / day</span></div>
+        <div class="stat"><b>30+</b><span class="lbl">Incidents &amp; RCAs</span></div>
+        <div class="stat"><b>15+</b><span class="lbl">Enterprise accounts</span></div>
+      </section>
+
+      <div class="body">
+        <div class="col-main">
+          <section class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <p class="summary">
+              Technical Support Specialist with <strong>4+ years of experience</strong> delivering L1/L2 support for
+              enterprise SaaS platforms and custom product-configuration (CPQ) systems. Skilled in advanced
+              troubleshooting, <strong>system log analysis, root-cause analysis (RCA)</strong> and incident management
+              across cloud environments. I consistently sustain a <strong>94% CSAT</strong> and a
+              <strong>sub-10-minute first-response SLA</strong> while resolving <strong>20+ cases per day</strong>, and I
+              have documented <strong>30+ incident investigations and RCAs</strong>, partnering with Engineering to ship
+              permanent fixes for <strong>15+ enterprise accounts</strong> across the US, Canada and LATAM.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Experience</h2>
+
+            <div class="entry">
+              <div class="entry-head">
+                <div>
+                  <div class="entry-title">Technical Support Specialist (Tier 1 &amp; Tier 2)</div>
+                  <div class="entry-org">Revalize / Configure One</div>
+                </div>
+                <div class="entry-period">Feb 2025 – Present</div>
+              </div>
+              <div class="entry-context">Enterprise CPQ SaaS platform for complex product configuration · Remote</div>
+              <ul class="bullets">
+                <li>Resolve 20+ daily L1/L2 cases on an enterprise CPQ SaaS platform, sustaining a 94% CSAT and a sub-10-minute first-response SLA.</li>
+                <li>Investigate and document 30+ incidents and RCAs, tracing root causes through system logs, error telemetry and cloud-environment diagnostics.</li>
+                <li>Support 15+ enterprise accounts (Avianca / Lifemiles, Altabix, Escapadas, Sicas Lite, Invetso and others) across the US, Canada and LATAM.</li>
+                <li>Partner with Engineering and Product to ship permanent fixes and reduce repeat escalations on authentication, configuration and integration issues.</li>
+                <li>Author customer-facing incident reports and knowledge-base articles, improving first-contact resolution and long-term platform stability.</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">CPQ</span><span class="tag">Log Analysis</span><span class="tag">RCA</span>
+                <span class="tag">SQL</span><span class="tag">SSO / OIDC</span><span class="tag">Salesforce</span>
+              </div>
+            </div>
+
+            <div class="entry">
+              <div class="entry-head">
+                <div>
+                  <div class="entry-title">Technical Support &amp; Project Coordination (Junior PM)</div>
+                  <div class="entry-org">BluePixel</div>
+                </div>
+                <div class="entry-period">Mar 2024 – Nov 2024</div>
+              </div>
+              <div class="entry-context">Technical Support / Client Solutions · Remote</div>
+              <ul class="bullets">
+                <li>Coordinated cross-functional teams to deliver client solutions in fast-paced technical environments.</li>
+                <li>Managed project timelines, client communication and task prioritization for high-profile accounts including Lifemiles–Avianca and Altabix.</li>
+                <li>Supported technical teams with issue tracking, follow-up and resolution workflows, bridging clients and development teams.</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Issue Tracking</span><span class="tag">Client Communication</span><span class="tag">Coordination</span>
+              </div>
+            </div>
+
+            <div class="entry">
+              <div class="entry-head">
+                <div>
+                  <div class="entry-title">Bilingual Customer &amp; Technical Support Specialist</div>
+                  <div class="entry-org">Teleperformance LATAM</div>
+                </div>
+                <div class="entry-period">Mar 2021 – Nov 2023</div>
+              </div>
+              <div class="entry-context">Uber Eats &amp; VRBO · Remote, US &amp; Canada markets</div>
+              <ul class="bullets">
+                <li>Handled high-volume technical and customer support across chat, phone and email, resolving 20+ daily cases.</li>
+                <li>Troubleshot account access, billing discrepancies, payment-gateway issues, refunds, failed transactions and account restrictions.</li>
+                <li>Managed password resets and security-related cases while maintaining strong customer satisfaction.</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Billing</span><span class="tag">Account Access</span><span class="tag">Security</span><span class="tag">KPIs</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="col-side">
+          <section class="section">
+            <h2 class="section-title">Core Competencies</h2>
+
+            <div class="comp-group">
+              <div class="comp-title">Support Engineering</div>
+              <div class="comp-items">
+                <span>L1 / L2 Technical Support</span><span>Incident Management</span>
+                <span>Escalation Handling</span><span>Root-Cause Analysis</span>
+                <span>SLA &amp; KPI Management</span><span>Customer Success</span>
+              </div>
+            </div>
+
+            <div class="comp-group">
+              <div class="comp-title">Debugging &amp; Observability</div>
+              <div class="comp-items">
+                <span>Application &amp; System Log Analysis</span><span>Error Telemetry</span>
+                <span>API / SSO (OIDC) Troubleshooting</span><span>Production Issue Reproduction</span>
+              </div>
+            </div>
+
+            <div class="comp-group">
+              <div class="comp-title">Cloud &amp; Systems</div>
+              <div class="comp-items">
+                <span>Cloud Environments</span><span>Windows &amp; Linux Servers</span>
+                <span>Networking</span><span>SSL / TLS Certificates</span><span>Databases &amp; SQL</span>
+              </div>
+            </div>
+
+            <div class="comp-group">
+              <div class="comp-title">Tools &amp; Platforms</div>
+              <div class="comp-items">
+                <span>Salesforce</span><span>Jira</span><span>Genesys Cloud</span><span>Citrix</span>
+                <span>Slack</span><span>Microsoft Teams</span><span>Google Workspace</span>
+              </div>
+            </div>
+
+            <div class="comp-group">
+              <div class="comp-title">Development Background</div>
+              <div class="comp-items">
+                <span>JavaScript</span><span>React</span><span>Node.js</span><span>REST APIs</span>
+                <span>HTML</span><span>CSS</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Languages</h2>
+
+            <div class="lang">
+              <div class="lang-top"><b>Spanish</b><span>Native</span></div>
+              <div class="bar"><i style="width: 100%"></i></div>
+            </div>
+            <div class="lang">
+              <div class="lang-top"><b>English</b><span>C1 — Professional</span></div>
+              <div class="bar"><i style="width: 88%"></i></div>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </article>
+
+    <!-- ==================================================================
+         PAGE 2
+         ================================================================== -->
+    <article class="page">
+      <header class="hdr slim">
+        <div class="wrap hdr-inner">
+          <div class="hdr-top">
+            <img class="avatar sm" src="photo-hugo.jpg" alt="Hugo Ramírez" />
+            <div style="flex: 1">
+              <h1 class="name sm">Hugo Ramírez</h1>
+              <p class="role" style="margin-top: 2px; font-size: 12px">
+                Technical Support Specialist <span>(L1 / L2)</span> — Enterprise SaaS &amp; CPQ
+              </p>
+            </div>
+          </div>
+          <div class="hdr-contact flat">
+            <a href="mailto:hugoo.ramirez@outlook.com">hugoo.ramirez@outlook.com</a>
+            <span>+57 322 596 3903</span>
+            <span>Cali, Colombia · Remote</span>
+            <a href="https://www.linkedin.com/in/hugo-ramirezr" target="_blank" rel="noopener">linkedin.com/in/hugo-ramirezr</a>
+            <a href="https://github.com/hugoramirez93" target="_blank" rel="noopener">github.com/hugoramirez93</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="body">
+        <div class="col-main">
+          <section class="section">
+            <h2 class="section-title">Selected Incident Investigations (RCA)</h2>
+
+            <div class="case">
+              <div class="case-head">
+                <span class="case-code">INC-001</span>
+                <span class="badge">Critical</span>
+                <span class="case-title">Production sign-in outage</span>
+                <span class="case-cat">Infrastructure · TLS</span>
+              </div>
+              <div class="case-line"><b>Problem:</b> production login outage traced to an expired TLS certificate on the application server, while the public site still presented a valid, separately renewed certificate.</div>
+              <div class="case-line"><b>Action:</b> isolated the mismatch to the application-server certificate and guided the customer through installing the correct certificate and private key.</div>
+              <div class="case-result">Result: restored access in ~31 hours · safeguards proposed to prevent recurrence.</div>
+              <div class="tags"><span class="tag">SSL / TLS</span><span class="tag">Log Analysis</span><span class="tag">Root Cause</span></div>
+            </div>
+
+            <div class="case high">
+              <div class="case-head">
+                <span class="case-code">INC-002</span>
+                <span class="badge high">High</span>
+                <span class="case-title">Quote-creation failure</span>
+                <span class="case-cat">Integration · Data</span>
+              </div>
+              <div class="case-line"><b>Problem:</b> a two-phase failure in which a recent environment change and legacy account data each independently blocked quote creation.</div>
+              <div class="case-line"><b>Action:</b> isolated a missing account reference value, restored the affected records and supported defensive integration changes to handle incomplete data gracefully.</div>
+              <div class="case-result">Result: quote creation restored across affected accounts · integration hardened against incomplete data.</div>
+              <div class="tags"><span class="tag">Dynamics CRM</span><span class="tag">Data Integrity</span><span class="tag">SQL</span></div>
+            </div>
+
+            <div class="case high">
+              <div class="case-head">
+                <span class="case-code">INC-003</span>
+                <span class="badge high">High</span>
+                <span class="case-title">SSO authentication upgrade</span>
+                <span class="case-cat">Identity · SSO</span>
+              </div>
+              <div class="case-line"><b>Problem:</b> first-login and account-linking failures surfaced for users immediately after a Keycloak 26 upgrade.</div>
+              <div class="case-line"><b>Action:</b> corrected OIDC scopes and Identity-Provider mappers, then documented the fix so it could be rolled out safely to production.</div>
+              <div class="case-result">Result: authentication restored for affected users · fix documented for repeatable rollout.</div>
+              <div class="tags"><span class="tag">Keycloak</span><span class="tag">OIDC</span><span class="tag">SSO</span></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Selected Projects</h2>
+
+            <div class="proj">
+              <div class="proj-top">
+                <span class="proj-title">Landingpage Arte — Art-gallery e-commerce</span>
+                <span class="proj-stack">Node · Express · SQLite · Stripe</span>
+              </div>
+              <div class="proj-desc">Art-gallery e-commerce platform with shopping cart, Stripe payments and an admin panel. Full-stack with Node.js and Express.</div>
+            </div>
+
+            <div class="proj">
+              <div class="proj-top">
+                <span class="proj-title">Artiefy Backend — REST API</span>
+                <span class="proj-stack">TypeScript · Next.js · Prisma</span>
+              </div>
+              <div class="proj-desc">REST API for an online store with authentication and a Prisma-managed SQLite database.</div>
+            </div>
+
+            <div class="proj">
+              <div class="proj-top">
+                <span class="proj-title">Gallery Store — Full-stack storefront</span>
+                <span class="proj-stack">Node · Express · Stripe · JWT</span>
+              </div>
+              <div class="proj-desc">Art-gallery storefront with JWT authentication, Stripe payments and an admin panel.</div>
+            </div>
+
+            <div class="proj">
+              <div class="proj-top">
+                <span class="proj-title">Netflix Clone &amp; React Expense Tracker</span>
+                <span class="proj-stack">React · Vite · JavaScript</span>
+              </div>
+              <div class="proj-desc">Responsive streaming UI replica and a state-driven budgeting app with reusable components.</div>
+            </div>
+
+            <div class="proj">
+              <div class="proj-top">
+                <span class="proj-title">Weather App &amp; Pokédex</span>
+                <span class="proj-stack">JavaScript · REST API · CSS</span>
+              </div>
+              <div class="proj-desc">Live weather data and an interactive Pokédex with search and type filters, both consuming public REST APIs.</div>
+            </div>
+
+            <div class="proj">
+              <div class="proj-top">
+                <span class="proj-title">Angular Steam</span>
+                <span class="proj-stack">Angular · TypeScript</span>
+              </div>
+              <div class="proj-desc">Steam interface replica demonstrating proficiency in the Angular framework.</div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="col-side">
+          <section class="section">
+            <h2 class="section-title">Education &amp; Certifications</h2>
+
+            <div class="edu">
+              <div class="edu-degree">Bachelor's Degree in Systems Engineering</div>
+              <div class="edu-inst">Fundación Universitaria San Mateo</div>
+              <div class="edu-meta"><span class="pill progress">In progress</span><span class="edu-year">Expected Dec 2027</span></div>
+            </div>
+
+            <div class="edu">
+              <div class="edu-degree">Technical Diploma in Software Development</div>
+              <div class="edu-inst">PONAO</div>
+              <div class="edu-meta"><span class="pill">Completed</span></div>
+            </div>
+
+            <div class="edu">
+              <div class="edu-degree">Full Stack Development Bootcamp</div>
+              <div class="edu-inst">Talento Tech</div>
+              <div class="edu-meta"><span class="pill">Completed</span><span class="edu-year">Feb 2025 – Aug 2025</span></div>
+            </div>
+
+            <div class="edu">
+              <div class="edu-degree">Meta Front-End Developer Professional Certificate</div>
+              <div class="edu-inst">Coursera</div>
+              <div class="edu-meta"><span class="pill">Completed</span></div>
+            </div>
+
+            <div class="edu">
+              <div class="edu-degree">Front-End Development</div>
+              <div class="edu-inst">Udemy</div>
+              <div class="edu-meta"><span class="pill">Completed</span></div>
+            </div>
+
+            <div class="edu">
+              <div class="edu-degree">Bilingual High School Diploma</div>
+              <div class="edu-inst">INCAP Institute · Diana Oese School</div>
+              <div class="edu-meta"><span class="pill">Completed</span></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Tools &amp; Technologies</h2>
+            <div class="tools">
+              <span>Salesforce</span><span>Jira</span><span>Genesys Cloud</span><span>Zendesk</span>
+              <span>Citrix</span><span>Postman</span><span>SQL</span><span>Keycloak</span>
+              <span>OIDC / SSO</span><span>Windows Server</span><span>Linux</span><span>REST APIs</span>
+              <span>React</span><span>Node.js</span><span>Google Workspace</span>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Highlights</h2>
+
+            <div class="highlight">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><path d="m9 11 3 3L22 4" /></svg>
+              <p><b>Consistency under load</b> — 94% CSAT and a sub-10-minute first response sustained across 20+ daily cases.</p>
+            </div>
+            <div class="highlight">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
+              <p><b>Root-cause driven</b> — 30+ investigations documented, turning recurring escalations into permanent fixes.</p>
+            </div>
+            <div class="highlight">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /></svg>
+              <p><b>Customer-facing</b> — clear incident reporting and knowledge-base authoring for US, Canada and LATAM accounts.</p>
+            </div>
+            <div class="highlight">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg>
+              <p><b>Technically fluent</b> — JavaScript, React, Node.js and REST APIs alongside enterprise support tooling.</p>
+            </div>
+          </section>
+        </aside>
+      </div>
+
+      <footer class="cv-foot">
+        <span><b>Hugo Ramírez</b> — Technical Support Specialist (L1/L2)</span>
+        <span>hugoo.ramirez@outlook.com · +57 322 596 3903 · linkedin.com/in/hugo-ramirezr</span>
+      </footer>
+    </article>
+  </body>
+</html>

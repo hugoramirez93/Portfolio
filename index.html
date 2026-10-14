@@ -1,15 +1,64 @@
 <!doctype html>
-<html lang="en" class="">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/images/photo.jpg" type="image/jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Hugo Ramirez — Technical Support Tier 1-2 / Junior Frontend Developer. Bilingual professional transitioning into web development." />
-    <meta property="og:title" content="Hugo Ramirez — Portfolio" />
-    <meta property="og:description" content="Technical Support Tier 1-2 / Junior Frontend Developer" />
-    <meta property="og:image" content="/images/photo.jpg" />
+
+    <title>Hugo Ramírez — Technical Support Specialist (L1/L2) | Enterprise SaaS &amp; CPQ</title>
+    <meta
+      name="description"
+      content="Technical Support Specialist (L1/L2) with 4+ years across enterprise SaaS and CPQ platforms. 94% CSAT, sub-10-minute first response, 30+ documented incidents and RCAs. Bilingual English (C1) / Spanish. Open to US &amp; EU hours."
+    />
+    <meta name="author" content="Hugo Ramírez" />
+    <meta
+      name="keywords"
+      content="Technical Support Specialist, L1 Support, L2 Support, Enterprise SaaS, CPQ, Root Cause Analysis, Incident Management, SLA, CSAT, SQL, Log Analysis, Salesforce, Jira, Keycloak, SSO, OIDC, Remote, US hours"
+    />
+    <meta name="theme-color" content="#05070e" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <title>Hugo Ramirez — Portfolio</title>
+    <meta property="og:title" content="Hugo Ramírez — Technical Support Specialist (L1/L2)" />
+    <meta
+      property="og:description"
+      content="Enterprise SaaS &amp; CPQ support engineer. 94% CSAT, 20+ cases/day, 30+ RCA investigations. Bilingual EN/ES, available for US hours."
+    />
+    <meta property="og:image" content="/photo-hugo.jpg" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hugo Ramírez — Technical Support Specialist (L1/L2)" />
+    <meta
+      name="twitter:description"
+      content="Enterprise SaaS &amp; CPQ support engineer. 94% CSAT, 20+ cases/day, 30+ RCA investigations. Bilingual EN/ES."
+    />
+    <meta name="twitter:image" content="/photo-hugo.jpg" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      // Applied before paint to avoid a flash of the wrong theme.
+      ;(function () {
+        try {
+          var stored = localStorage.getItem('theme')
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+          var dark = stored ? stored === 'dark' : true // dark-first design
+          document.documentElement.classList.toggle('dark', dark)
+          document.documentElement.style.colorScheme = dark ? 'dark' : 'light'
+        } catch (e) {
+          document.documentElement.classList.add('dark')
+        }
+      })()
+    </script>
   </head>
   <body>
     <div id="app"></div>

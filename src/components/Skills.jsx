@@ -1,76 +1,52 @@
-import { motion } from 'framer-motion'
-import { Code2, BookOpen } from 'lucide-react'
-import { skills } from '../data/portfolio'
-import SectionWrapper from './SectionWrapper'
+import { LifeBuoy, SearchCode, Server, Wrench, Code2 } from 'lucide-react'
+import { competencies } from '../data/portfolio'
+import SectionHeading from './SectionHeading'
+import Reveal from './Reveal'
 
-const categories = [
-  { key: 'Frontend', label: 'Frontend', icon: Code2 },
-  { key: 'Learning', label: 'Currently Learning', icon: BookOpen },
-]
+const iconMap = { LifeBuoy, SearchCode, Server, Wrench, Code2 }
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08 },
-  },
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-}
+const spans = ['lg:col-span-2', 'lg:col-span-2', 'lg:col-span-2', 'lg:col-span-3', 'lg:col-span-3']
 
 export default function Skills() {
-  const grouped = categories.map(({ key, label, icon: Icon }) => ({
-    key,
-    label,
-    icon: Icon,
-    items: skills.filter((s) => s.category === key),
-  }))
-
   return (
-    <SectionWrapper id="skills" className="py-20 px-4 bg-[var(--bg-secondary)]">
-      <div className="max-w-4xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl sm:text-4xl font-bold text-center mb-12 text-[var(--text-primary)]"
-        >
-          Skills & Technologies
-        </motion.h2>
+    <section id="skills" className="relative scroll-mt-24 border-y border-[var(--border)] bg-tint-surface py-20 sm:py-28">
+      <div className="shell">
+        <SectionHeading
+          eyebrow="Core competencies"
+          title="The toolkit behind"
+          highlight="every resolution"
+          description="Five areas I rely on to take an issue from first report to a documented, permanent fix."
+        />
 
-        <div className="space-y-12">
-          {grouped.map(({ key, label, icon: Icon, items }) => (
-            <div key={key}>
-              <div className="flex items-center gap-2 mb-6">
-                <Icon className="w-5 h-5 text-[var(--accent)]" />
-                <h3 className="text-lg font-semibold text-[var(--text-primary)]">{label}</h3>
-              </div>
-              <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3"
-              >
-                {items.map((skill) => (
-                  <motion.div
-                    key={skill.name}
-                    variants={itemVariants}
-                    className="px-4 py-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] text-center hover:border-[var(--accent)]/40 hover:shadow-md hover:shadow-[var(--accent)]/5 transition-all cursor-default"
-                  >
-                    <p className="text-sm font-medium text-[var(--text-primary)]">
-                      {skill.name}
-                    </p>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-          ))}
+        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-6">
+          {competencies.map((group, i) => {
+            const Icon = iconMap[group.icon] || LifeBuoy
+            return (
+              <Reveal key={group.group} delay={i * 0.07} className={spans[i]}>
+                <div className="panel panel-hover h-full p-5">
+                  <div className="mb-4 flex items-center gap-3">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--chip-bg)] text-[var(--accent)]">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <h3 className="text-base font-semibold text-[var(--text-primary)]">{group.group}</h3>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5">
+                    {group.items.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-lg border border-[var(--border-card)] bg-[var(--bg-card)] px-2.5 py-1 text-xs font-medium text-[var(--text-secondary)] transition-colors hover:bd-accent-40 hover:text-[var(--accent)]"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            )
+          })}
         </div>
       </div>
-    </SectionWrapper>
+    </section>
   )
 }
