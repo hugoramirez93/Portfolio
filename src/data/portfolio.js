@@ -222,6 +222,10 @@ export const incidentCases = [
   },
 ]
 
+/**
+ * Education & certifications, ordered newest → oldest so the timeline reads
+ * top-down. `verify` holds the public Coursera credential link when available.
+ */
 export const education = [
   {
     degree: "Bachelor's Degree in Systems Engineering",
@@ -229,13 +233,6 @@ export const education = [
     year: 'Expected Dec 2027',
     status: 'in-progress',
     type: 'Degree',
-  },
-  {
-    degree: 'Technical Diploma in Software Development',
-    institution: 'PONAO',
-    year: 'Completed',
-    status: 'completed',
-    type: 'Diploma',
   },
   {
     degree: 'Full Stack Development Bootcamp',
@@ -249,7 +246,54 @@ export const education = [
     institution: 'Coursera',
     year: 'Completed',
     status: 'completed',
+    type: 'Professional Certificate',
+  },
+  {
+    degree: 'JavaScript Basics',
+    institution: 'University of California, Davis · Coursera',
+    year: 'Sep 2023',
+    status: 'completed',
     type: 'Certification',
+    verify: 'https://coursera.org/verify/8EEUACPPH6WC',
+  },
+  {
+    degree: 'Version Control',
+    institution: 'Meta · Coursera',
+    year: 'Feb 2023',
+    status: 'completed',
+    type: 'Certification',
+    verify: 'https://coursera.org/verify/T8WE3VM4U2ZV',
+  },
+  {
+    degree: 'HTML and CSS in depth',
+    institution: 'Meta · Coursera',
+    year: 'Feb 2023',
+    status: 'completed',
+    type: 'Certification',
+    verify: 'https://coursera.org/verify/CMMCYZZTJ929',
+  },
+  {
+    degree: 'Programming with JavaScript',
+    institution: 'Meta · Coursera',
+    year: 'Jan 2023',
+    status: 'completed',
+    type: 'Certification',
+    verify: 'https://coursera.org/verify/3BD7PWL647ZW',
+  },
+  {
+    degree: 'Introduction to Front-End Development',
+    institution: 'Meta · Coursera',
+    year: 'Dec 2022',
+    status: 'completed',
+    type: 'Certification',
+    verify: 'https://coursera.org/verify/KM9LX7U2RXZT',
+  },
+  {
+    degree: 'Technical Diploma in Software Development',
+    institution: 'PONAO',
+    year: 'Completed',
+    status: 'completed',
+    type: 'Diploma',
   },
   {
     degree: 'Front-End Development',
@@ -257,13 +301,6 @@ export const education = [
     year: 'Completed',
     status: 'completed',
     type: 'Certification',
-  },
-  {
-    degree: 'Bilingual High School Diploma',
-    institution: 'INCAP Institute · Diana Oese School',
-    year: 'Completed',
-    status: 'completed',
-    type: 'Education',
   },
 ]
 

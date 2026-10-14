@@ -123,6 +123,7 @@ export default function Contact() {
       value: EMAIL,
       href: `mailto:${EMAIL}`,
       icon: Mail,
+      copyable: true,
     },
     {
       label: 'Phone',
@@ -175,15 +176,10 @@ export default function Contact() {
             </p>
 
             <div className="mt-6 space-y-3">
-              {channels.map(({ label, value, href, icon: Icon }) => {
+              {channels.map(({ label, value, href, icon: Icon, copyable }) => {
                 const isExternal = href.startsWith('http')
-                return (
-                  <a
-                    key={label}
-                    href={href}
-                    {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                    className="group flex items-center gap-3 rounded-xl border border-[var(--border-card)] bg-[var(--bg-card)] p-3.5 transition-colors hover:bd-accent-40"
-                  >
+                const body = (
+                  <>
                     <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--chip-bg)] text-[var(--accent)]">
                       <Icon className="h-4 w-4" aria-hidden="true" />
                     </span>
@@ -193,6 +189,52 @@ export default function Contact() {
                       </span>
                       <span className="block truncate text-sm text-[var(--text-primary)]">{value}</span>
                     </span>
+                  </>
+                )
+
+                // Email row also offers a quick copy — the address itself is the link.
+                if (copyable) {
+                  return (
+                    <div
+                      key={label}
+                      className="flex items-center gap-2 rounded-xl border border-[var(--border-card)] bg-[var(--bg-card)] p-3.5"
+                    >
+                      <a
+                        href={href}
+                        className="group flex min-w-0 flex-1 items-center gap-3"
+                        aria-label={`Send an email to ${value}`}
+                      >
+                        {body}
+                        <ArrowUpRight
+                          className="h-4 w-4 shrink-0 text-[var(--text-muted)] transition-colors group-hover:text-[var(--accent)]"
+                          aria-hidden="true"
+                        />
+                      </a>
+                      <button
+                        type="button"
+                        onClick={copyEmail}
+                        className="icon-btn h-9 w-9 shrink-0"
+                        aria-label="Copy email address"
+                        title="Copy email address"
+                      >
+                        {copied ? (
+                          <Check className="h-4 w-4 text-[var(--success)]" aria-hidden="true" />
+                        ) : (
+                          <Copy className="h-4 w-4" aria-hidden="true" />
+                        )}
+                      </button>
+                    </div>
+                  )
+                }
+
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    className="group flex items-center gap-3 rounded-xl border border-[var(--border-card)] bg-[var(--bg-card)] p-3.5 transition-colors hover:bd-accent-40"
+                  >
+                    {body}
                     <ArrowUpRight
                       className="h-4 w-4 shrink-0 text-[var(--text-muted)] transition-colors group-hover:text-[var(--accent)]"
                       aria-hidden="true"
@@ -201,20 +243,6 @@ export default function Contact() {
                 )
               })}
             </div>
-
-            <a href={`mailto:${EMAIL}`} className="btn btn-primary mt-5 w-full">
-              <Mail className="h-4 w-4" aria-hidden="true" />
-              Send me an email
-            </a>
-
-            <button type="button" onClick={copyEmail} className="btn btn-ghost mt-3 w-full">
-              {copied ? (
-                <Check className="h-4 w-4 text-[var(--success)]" aria-hidden="true" />
-              ) : (
-                <Copy className="h-4 w-4" aria-hidden="true" />
-              )}
-              {copied ? 'Email copied' : 'Copy email address'}
-            </button>
 
             <p className="mt-4 flex items-start gap-2 text-xs text-[var(--text-muted)]">
               <Clock className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />

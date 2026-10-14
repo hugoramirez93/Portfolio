@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence, useScroll } from 'framer-motion'
-import { Menu, X, Download } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
 import { personalInfo } from '../data/portfolio'
 
@@ -119,14 +119,6 @@ export default function Navbar() {
             </div>
 
             <div className="flex items-center gap-2">
-              <a
-                href={personalInfo.resumeUrl}
-                download
-                className="hidden items-center gap-2 rounded-xl border border-[var(--border-strong)] px-3.5 py-2 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] md:inline-flex"
-              >
-                <Download className="h-4 w-4" />
-                Resume
-              </a>
               <ThemeToggle />
               <button
                 type="button"
@@ -173,14 +165,6 @@ export default function Navbar() {
                     {label}
                   </motion.a>
                 ))}
-                <a
-                  href={personalInfo.resumeUrl}
-                  download
-                  className="btn btn-primary mt-2 w-full"
-                >
-                  <Download className="h-4 w-4" />
-                  Download Resume
-                </a>
               </div>
             </motion.div>
           )}

@@ -87,7 +87,7 @@ export default function Footer() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
               Get my CV
             </p>
-            <a href={personalInfo.resumeUrl} download className="btn btn-primary mt-3">
+            <a href={personalInfo.resumeUrl} download className="btn btn-primary mt-3 w-full">
               <Download className="h-4 w-4" />
               Download Resume
             </a>

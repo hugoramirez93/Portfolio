@@ -1,4 +1,4 @@
-import { MapPin, Clock, Globe, Download, CheckCircle2, Zap } from 'lucide-react'
+import { MapPin, Clock, Globe, CheckCircle2, Zap } from 'lucide-react'
 import { personalInfo } from '../data/portfolio'
 import SectionHeading from './SectionHeading'
 import Reveal from './Reveal'
@@ -111,13 +111,6 @@ export default function About() {
                 </li>
               ))}
             </ul>
-
-            <div className="p-5 pt-1">
-              <a href={personalInfo.resumeUrl} download className="btn btn-primary w-full">
-                <Download className="h-4 w-4" />
-                Download Resume
-              </a>
-            </div>
           </div>
         </Reveal>
       </div>
