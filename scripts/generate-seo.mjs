@@ -47,6 +47,8 @@ function headFor(route) {
   const image = `${SITE_URL}${meta.image}`
 
   return [
+    // The home hero cover is the LCP element — start fetching it ASAP.
+    ...(route === '/' ? ['<link rel="preload" as="image" href="/photo-hugo.jpg" fetchpriority="high" />'] : []),
     `<title>${esc(title)}</title>`,
     `<meta name="description" content="${esc(meta.description)}" />`,
     `<link rel="canonical" href="${esc(url)}" />`,
