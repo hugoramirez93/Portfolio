@@ -11,7 +11,7 @@
  */
 
 /** Public production URL. Update this one constant if the domain changes. */
-export const SITE_URL = 'https://portfolio-nine-phi-eivma22zo6.vercel.app'
+export const SITE_URL = 'https://portfolio-nine-phi.vercel.app'
 
 /** Appended to the short `title` on every page except the home page. */
 export const TITLE_SUFFIX = ' · Hugo Ramírez — Technical Support Specialist (L1/L2)'
