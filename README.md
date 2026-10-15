@@ -11,6 +11,7 @@ The site is written for recruiters and hiring managers in the US and EU: it lead
 - **Impact metrics** animated on scroll (CSAT, SLA, cases/day, RCAs, accounts).
 - **Selected incident cases** structured as problem → action → result → prevention.
 - **Core competencies** grouped by support engineering, debugging/observability, cloud & systems, tools and development.
+- **AI-assisted workflows** — how I use GitHub Copilot, ChatGPT, Gemini, Claude Code, OpenCode and Codex across support triage/documentation and software development (human-in-the-loop).
 - Interactive project grid with filters, thumbnails and a downloadable résumé.
 - **Per-page SEO** — every route ships its own `<title>`, description, canonical URL and 1200×630 social card, prerendered as static HTML for link unfurlers and crawlers.
 - Accessible: keyboard focus styles, skip link, reduced-motion support, semantic landmarks.

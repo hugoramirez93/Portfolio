@@ -116,7 +116,45 @@ export const toolMarquee = [
   'Google Workspace',
   'React',
   'Node.js',
+  'GitHub Copilot',
+  'ChatGPT',
+  'Gemini',
+  'Claude Code',
+  'OpenCode',
+  'Codex',
 ]
+
+/**
+ * How I use AI assistants every day — as acceleration with a human in the
+ * loop, for both support work and software development.
+ */
+export const aiStack = {
+  intro:
+    'I use AI assistants as a force multiplier, not a shortcut. They compress triage, documentation and code into minutes — while every diagnosis, reply and commit stays verified and owned by me.',
+  tools: [
+    { name: 'GitHub Copilot', badge: 'Co', desc: 'In-editor completion, refactors and test scaffolding.' },
+    { name: 'ChatGPT', badge: 'GPT', desc: 'Troubleshooting, drafting and data analysis.' },
+    { name: 'Gemini', badge: 'Ge', desc: 'Research and long-context reasoning over docs.' },
+    { name: 'Claude Code', badge: 'CC', desc: 'Agentic work across an existing codebase.' },
+    { name: 'OpenCode', badge: 'OC', desc: 'Terminal-first agentic coding and automation.' },
+    { name: 'Codex', badge: 'Cx', desc: 'Scripted, automated code tasks.' },
+  ],
+  supportUses: [
+    'Summarising long log files and stack traces to surface the failing component',
+    'Turning messy ticket threads into clear, structured incident reports and RCAs',
+    'Drafting and tightening knowledge-base articles and customer replies',
+    'Generating SQL and queries to reproduce and validate data issues',
+    'Translating and tone-checking bilingual customer communication',
+  ],
+  devUses: [
+    'Scaffolding components and boilerplate — then reviewing every line',
+    'Explaining unfamiliar or legacy code fast',
+    'Writing, fixing and expanding tests; debugging with a second pair of eyes',
+    'Refactoring, code review and documentation',
+  ],
+  note:
+    'Human-in-the-loop by default: no AI output reaches a customer or a commit without review, and no customer data is shared with third-party tools.',
+}
 
 export const experience = [
   {

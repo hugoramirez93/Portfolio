@@ -39,7 +39,7 @@ export const SEO = {
     title: 'Skills & tools',
     shareTitle: 'Skills & tools — Support Engineering',
     description:
-      'Support engineering toolkit: incident management, root-cause analysis, log analysis, SQL and SSO/OIDC — plus the enterprise SaaS platforms and tools I use every day.',
+      'Support engineering toolkit: incident management, root-cause analysis, log analysis, SQL and SSO/OIDC — plus AI-assisted workflows with GitHub Copilot, ChatGPT, Gemini, Claude Code and OpenCode.',
     image: '/og/skills.png',
   },
   '/experience': {

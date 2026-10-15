@@ -17,7 +17,14 @@ const item = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
 }
 
-const specialties = ['L1 / L2 Support', 'Incident Management', 'Root-Cause Analysis', 'Log Analysis', 'SQL']
+const specialties = [
+  'L1 / L2 Support',
+  'Incident Management',
+  'Root-Cause Analysis',
+  'Log Analysis',
+  'SQL',
+  'AI-Assisted Workflows',
+]
 
 function scrollTo(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })

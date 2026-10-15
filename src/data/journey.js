@@ -32,7 +32,7 @@ export const journey = [
     path: '/skills',
     label: 'Skills',
     title: 'Skills & tools',
-    blurb: 'The toolkit behind every resolution — from triage to log analysis.',
+    blurb: 'The toolkit behind every resolution — from triage and log analysis to AI-assisted workflows.',
     icon: Wrench,
   },
   {
