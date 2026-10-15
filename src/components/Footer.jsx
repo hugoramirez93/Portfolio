@@ -1,36 +1,33 @@
+import { Link } from 'react-router-dom'
 import { Mail, Download, ExternalLink } from 'lucide-react'
 import { FiLinkedin, FiGithub } from 'react-icons/fi'
 import { personalInfo } from '../data/portfolio'
 
 const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Case Studies', href: '#cases' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Education', href: '#education' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
+  { label: 'Skills', to: '/skills' },
+  { label: 'Experience', to: '/experience' },
+  { label: 'Case Studies', to: '/case-studies' },
+  { label: 'Projects', to: '/projects' },
+  { label: 'Education', to: '/education' },
+  { label: 'Contact', to: '/#contact' },
 ]
 
 export default function Footer() {
-  const scrollTo = (event, href) => {
-    event.preventDefault()
-    document.getElementById(href.slice(1))?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
-
   return (
     <footer className="relative z-10 border-t border-[var(--border)] bg-tint-surface">
       <div className="shell py-12">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-sm">
-            <a href="#home" onClick={(e) => scrollTo(e, '#home')} className="flex items-center gap-2.5">
+            <Link to="/" className="flex items-center gap-2.5">
               <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-[var(--border-strong)] bg-[var(--bg-elevated)] text-sm font-bold">
                 <span className="gradient-text">{personalInfo.initials}</span>
               </span>
               <span className="text-sm font-semibold text-[var(--text-primary)]">
                 {personalInfo.name}
               </span>
-            </a>
+            </Link>
             <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
               {personalInfo.role} ({personalInfo.roleLevel}) · {personalInfo.roleFocus}
             </p>
@@ -69,15 +66,14 @@ export default function Footer() {
               Navigate
             </p>
             <ul className="mt-3 grid grid-cols-2 gap-x-8 gap-y-1 sm:grid-cols-3">
-              {navLinks.map(({ label, href }) => (
-                <li key={href}>
-                  <a
-                    href={href}
-                    onClick={(e) => scrollTo(e, href)}
+              {navLinks.map(({ label, to }) => (
+                <li key={to}>
+                  <Link
+                    to={to}
                     className="inline-block py-1 text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--accent)]"
                   >
                     {label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

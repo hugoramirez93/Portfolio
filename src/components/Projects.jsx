@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ExternalLink, FolderOpen, Code, Gamepad2, Cloud, Terminal } from 'lucide-react'
+import { ExternalLink, FolderOpen, Code, Cloud } from 'lucide-react'
 import { FiGithub } from 'react-icons/fi'
 import {
   SiReact,
@@ -80,11 +80,26 @@ function ProjectCard({ project }) {
       className="panel panel-hover group flex h-full flex-col overflow-hidden"
     >
       <div className="relative flex h-40 items-center justify-center overflow-hidden border-b border-[var(--border-card)] bg-tint-accent-soft">
-        <div className="bg-dots absolute inset-0 opacity-70" aria-hidden="true" />
-        <HeroIcon className="relative h-14 w-14 text-[var(--accent)] opacity-70 transition-transform duration-500 group-hover:scale-110" aria-hidden="true" />
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={`${project.title} — preview`}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+          />
+        ) : (
+          <>
+            <div className="bg-dots absolute inset-0 opacity-70" aria-hidden="true" />
+            <HeroIcon
+              className="relative h-14 w-14 text-[var(--accent)] opacity-70 transition-transform duration-500 group-hover:scale-110"
+              aria-hidden="true"
+            />
+          </>
+        )}
 
         {project.featured && (
-          <span className="absolute right-3 top-3 rounded-full border border-[var(--border-strong)] bg-[var(--bg-elevated)] px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-[var(--accent)]">
+          <span className="absolute right-3 top-3 z-10 rounded-full border border-[var(--border-strong)] bg-[var(--bg-elevated)] px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-[var(--accent)]">
             Featured
           </span>
         )}
@@ -173,24 +188,6 @@ export default function Projects() {
           ))}
         </AnimatePresence>
       </motion.div>
-
-      <Reveal delay={0.1}>
-        <div className="panel mt-8 flex flex-col items-center gap-3 p-5 text-center sm:flex-row sm:justify-between sm:text-left">
-          <p className="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
-            <Terminal className="h-4 w-4 text-[var(--accent)]" />
-            More repositories and experiments live on GitHub.
-          </p>
-          <a
-            href="https://github.com/hugoramirez93"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-ghost"
-          >
-            <FiGithub className="h-4 w-4" />
-            Browse all repositories
-          </a>
-        </div>
-      </Reveal>
     </section>
   )
 }

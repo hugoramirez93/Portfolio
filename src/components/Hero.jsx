@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { ArrowDown, ArrowRight, Download, MapPin, Clock, Sparkles } from 'lucide-react'
 import { FiLinkedin, FiGithub } from 'react-icons/fi'
 import { personalInfo } from '../data/portfolio'
@@ -88,10 +89,10 @@ export default function Hero() {
                 <Download className="h-4 w-4" />
                 Download Resume
               </a>
-              <button type="button" onClick={() => scrollTo('cases')} className="btn btn-ghost">
-                View Case Studies
+              <Link to="/about" className="btn btn-ghost">
+                Start the guided tour
                 <ArrowRight className="h-4 w-4" />
-              </button>
+              </Link>
             </motion.div>
 
             <motion.div variants={item} className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-[var(--text-secondary)]">
@@ -160,12 +161,12 @@ export default function Hero() {
 
       <motion.button
         type="button"
-        onClick={() => scrollTo('about')}
+        onClick={() => scrollTo('tour')}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.6 }}
         className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 text-[var(--text-muted)] transition-colors hover:text-[var(--accent)] md:block"
-        aria-label="Scroll to about section"
+        aria-label="See the guided tour"
       >
         <motion.span animate={{ y: [0, 7, 0] }} transition={{ duration: 2, repeat: Infinity }}>
           <ArrowDown className="h-5 w-5" />

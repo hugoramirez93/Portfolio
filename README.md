@@ -7,10 +7,12 @@ The site is written for recruiters and hiring managers in the US and EU: it lead
 ## Highlights
 
 - **Dark-first, premium design** with a full light theme (no flash of the wrong theme on load).
+- **Multi-page guided tour** — the story is split into focused pages, each with a progress bar (`Step 3/7`) and a clear "next step" panel, so a visitor always knows what to read next.
 - **Impact metrics** animated on scroll (CSAT, SLA, cases/day, RCAs, accounts).
 - **Selected incident cases** structured as problem → action → result → prevention.
 - **Core competencies** grouped by support engineering, debugging/observability, cloud & systems, tools and development.
-- Interactive project grid with filters, a terminal-style hero card and a downloadable résumé.
+- Interactive project grid with filters, thumbnails and a downloadable résumé.
+- **Per-page SEO** — every route ships its own `<title>`, description, canonical URL and 1200×630 social card, prerendered as static HTML for link unfurlers and crawlers.
 - Accessible: keyboard focus styles, skip link, reduced-motion support, semantic landmarks.
 
 ## Tech stack
@@ -25,9 +27,23 @@ The site is written for recruiters and hiring managers in the US and EU: it lead
 ```bash
 npm install
 npm run dev      # start the dev server
-npm run build    # production build to dist/
+npm run build    # production build to dist/ + per-route SEO files
 npm run preview  # preview the production build
 ```
+
+> `npm run build` runs `vite build` and then `scripts/generate-seo.mjs`, which
+> writes one static HTML file per route (correct `<head>` without JavaScript)
+> plus `sitemap.xml` and `robots.txt`. Use `npm run build:spa` to skip that step.
+
+## Pages & the guided flow
+
+Routes are defined in `src/App.jsx` (React Router). The guided order lives in
+`src/data/journey.js`, which drives the progress bar, the "next step" panel and
+the tour hub on the home page:
+
+`/` → `/about` → `/skills` → `/experience` → `/case-studies` → `/projects` → `/education` → `/#contact`
+
+Unknown URLs render a friendly 404 (`src/pages/NotFound.jsx`).
 
 ## Editing content
 
@@ -41,7 +57,7 @@ The contact form delivers messages straight to the inbox via
 [Web3Forms](https://web3forms.com) — no backend required.
 
 1. Go to [web3forms.com](https://web3forms.com) and enter the destination address
-   (`hugoo.ramirez@outlook.com`). No account is needed.
+   (`hugoo.ramirez493@gmail.com`). No account is needed.
 2. Copy the access key they email you.
 3. Paste it into **`VITE_WEB3FORMS_KEY`** in a `.env` file (copy `.env.example`)
    or into the `WEB3FORMS_ACCESS_KEY` constant in `src/components/Contact.jsx`.
@@ -61,12 +77,15 @@ Pixel 7 and iPad — with **zero horizontal overflow** at every width.
 
 ```
 src/
-  components/    # section + UI components
-  data/          # portfolio.js — all site content
-  hooks/         # useTheme, useCountUp
-  App.jsx
-  main.jsx
+  components/    # section + UI components (shared across pages)
+  data/          # portfolio.js (content), journey.js (guided order), seo.js (per-page metadata)
+  hooks/         # useTheme, useCountUp, usePageMeta
+  pages/         # one component per route (Home, About, Skills, ...)
+  App.jsx        # <Routes>
+  main.jsx       # BrowserRouter + ThemeProvider
   index.css      # design tokens, component + utility layers
+scripts/
+  generate-seo.mjs   # post-build: per-route static HTML + sitemap.xml + robots.txt
 ```
 
 ## Theming

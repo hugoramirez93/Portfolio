@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import {
   Mail,
-  Phone,
   MapPin,
   Send,
   Copy,
@@ -123,12 +122,6 @@ export default function Contact() {
       href: `mailto:${EMAIL}`,
       icon: Mail,
       copyable: true,
-    },
-    {
-      label: 'Phone',
-      value: personalInfo.phone,
-      href: `tel:${personalInfo.phone.replace(/\s+/g, '')}`,
-      icon: Phone,
     },
     {
       label: 'LinkedIn',

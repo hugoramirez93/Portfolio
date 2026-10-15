@@ -7,7 +7,7 @@ export const personalInfo = {
   roleFocus: 'Enterprise SaaS & CPQ',
   tagline:
     'I keep enterprise SaaS products running — diagnosing, reproducing and resolving production issues before they reach the customer again.',
-  email: 'hugoo.ramirez@outlook.com',
+  email: 'hugoo.ramirez493@gmail.com',
   phone: '+57 322 596 3903',
   location: 'Cali, Colombia',
   timezone: 'GMT-5 (aligns with US Eastern & Central)',
@@ -242,11 +242,11 @@ export const education = [
     type: 'Bootcamp',
   },
   {
-    degree: 'Meta Front-End Developer Professional Certificate',
-    institution: 'Coursera',
+    degree: 'Technical Diploma in Software Development',
+    institution: 'PONAO',
     year: 'Completed',
     status: 'completed',
-    type: 'Professional Certificate',
+    type: 'Diploma',
   },
   {
     degree: 'JavaScript Basics',
@@ -289,11 +289,11 @@ export const education = [
     verify: 'https://coursera.org/verify/KM9LX7U2RXZT',
   },
   {
-    degree: 'Technical Diploma in Software Development',
-    institution: 'PONAO',
+    degree: 'Meta Front-End Developer Professional Certificate',
+    institution: 'Coursera',
     year: 'Completed',
     status: 'completed',
-    type: 'Diploma',
+    type: 'Professional Certificate',
   },
   {
     degree: 'Front-End Development',
@@ -312,7 +312,7 @@ export const projects = [
     description:
       'An art gallery e-commerce platform with shopping cart, Stripe payments and an admin panel. Full-stack, built with Node.js, Express and SQLite.',
     tags: ['JavaScript', 'Node.js', 'Express', 'SQLite', 'Stripe'],
-    image: null,
+    image: '/projects/landingpage-arte.webp',
     github: 'https://github.com/hugoramirez93/Landingpage-arte',
     link: 'https://landingpage-arte.vercel.app',
     featured: true,
@@ -324,7 +324,7 @@ export const projects = [
     description:
       'A REST API for an online store built with Next.js, TypeScript and Prisma, featuring authentication and a SQLite database.',
     tags: ['TypeScript', 'Next.js', 'Prisma', 'SQLite'],
-    image: null,
+    image: '/projects/artiefy-backend.webp',
     github: 'https://github.com/hugoramirez93/Artiefy-Backedn',
     link: 'https://artiefy-backedn.vercel.app',
     featured: true,
@@ -336,7 +336,7 @@ export const projects = [
     description:
       'An art gallery e-commerce platform with JWT authentication, Stripe payments and an admin panel. Full-stack with Node.js and Express.',
     tags: ['JavaScript', 'Node.js', 'Express', 'Stripe', 'JWT'],
-    image: null,
+    image: '/projects/gallery-store.webp',
     github: 'https://github.com/hugoramirez93/Gallery-store',
     link: null,
     featured: true,
@@ -348,7 +348,7 @@ export const projects = [
     description:
       'A Netflix interface replica built with React and Vite, featuring a responsive movie catalog layout.',
     tags: ['React', 'Vite', 'JavaScript', 'CSS'],
-    image: null,
+    image: '/projects/netflix-clone.webp',
     github: 'https://github.com/hugoramirez93/Netflix-Clone',
     link: null,
     featured: false,
@@ -360,7 +360,7 @@ export const projects = [
     description:
       'A web application that fetches real-time weather data, displaying temperature, humidity and current conditions.',
     tags: ['HTML', 'CSS', 'JavaScript', 'REST API'],
-    image: null,
+    image: '/projects/weather-app.webp',
     github: 'https://github.com/hugoramirez93/Weather-App',
     link: null,
     featured: false,
@@ -372,7 +372,7 @@ export const projects = [
     description:
       'An interactive Pokédex showcasing the first 151 Pokémon using the PokeAPI, with type filters and search functionality.',
     tags: ['JavaScript', 'CSS', 'HTML', 'REST API'],
-    image: null,
+    image: '/projects/pokedex.webp',
     github: 'https://github.com/hugoramirez93/Pok-dex',
     link: null,
     featured: false,
@@ -384,7 +384,7 @@ export const projects = [
     description:
       'A Steam interface replica built with Angular and TypeScript, demonstrating proficiency in the Angular framework.',
     tags: ['Angular', 'TypeScript', 'HTML', 'CSS'],
-    image: null,
+    image: '/projects/angular-steam.webp',
     github: 'https://github.com/hugoramirez93/Angular-Steam',
     link: null,
     featured: false,
@@ -396,7 +396,7 @@ export const projects = [
     description:
       'An expense tracking application built with React and Vite, featuring state management and reusable components.',
     tags: ['React', 'Vite', 'JavaScript', 'CSS'],
-    image: null,
+    image: '/projects/react-expense-tracker.webp',
     github: 'https://github.com/hugoramirez93/React-expense-tracker',
     link: null,
     featured: false,

@@ -1,0 +1,11 @@
+{
+  "rewrites": [
+    { "source": "/about", "destination": "/about/index.html" },
+    { "source": "/skills", "destination": "/skills/index.html" },
+    { "source": "/experience", "destination": "/experience/index.html" },
+    { "source": "/case-studies", "destination": "/case-studies/index.html" },
+    { "source": "/projects", "destination": "/projects/index.html" },
+    { "source": "/education", "destination": "/education/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
