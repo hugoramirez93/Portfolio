@@ -306,20 +306,9 @@
     border-color: color-mix(in srgb, var(--warning) 32%, transparent);
   }
 
-  .bg-grid {
-    background-image: linear-gradient(to right, var(--grid) 1px, transparent 1px),
-      linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
-    background-size: 46px 46px;
-  }
-
   .bg-dots {
     background-image: radial-gradient(var(--grid) 1px, transparent 1px);
     background-size: 22px 22px;
-  }
-
-  .mask-fade-b {
-    -webkit-mask-image: linear-gradient(to bottom, #000 52%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 52%, transparent 100%);
   }
 
   .mask-fade-x {

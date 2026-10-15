@@ -1,12 +1,10 @@
 /**
- * Fixed, decorative backdrop: a faint technical grid plus a few soft
- * radial glows that adapt to the active theme.
+ * Fixed, decorative backdrop: a few soft radial glows that adapt to the
+ * active theme. Kept pattern-free on purpose (no grid) for a cleaner surface.
  */
 export default function Background() {
   return (
     <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-      <div className="bg-grid mask-fade-b absolute inset-0 opacity-50 dark:opacity-100" />
-
       <div
         className="animate-pulse-glow absolute -top-48 left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full blur-[130px]"
         style={{ background: 'radial-gradient(circle, var(--glow), transparent 66%)' }}
